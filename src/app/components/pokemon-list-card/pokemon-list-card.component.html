@@ -1,0 +1,16 @@
+<div class='list_card' *ngFor='let pokemon of pokemonData'>
+  <div class='global_poke_info'>
+    <img class='poke_img' alt={{pokemon.name}} src={{pokemon.sprites.front_default}}>
+    <div class="poke_info">
+      <p class='poke_name'>{{pokemon.name | titlecase }}</p>
+      <p class='poke_id'>Nr. {{pokemon.id}}</p>
+    </div>
+  </div>
+  <div class='poke_detail_action'>
+    <div class='type_tag' *ngFor='let type of pokemon.types'>
+      <p [ngStyle]="{'background-color': getColorByType(type.type.name)}" class="type">{{type.type.name | titlecase}}
+      </p>
+    </div>
+    <fa-icon [icon]="faChevron"></fa-icon>
+  </div>
+</div>
