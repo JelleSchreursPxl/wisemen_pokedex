@@ -1,7 +1,8 @@
+import { Pokemon } from './../interfaces/Pokemon';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 
-import { throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators'
 
 @Injectable({
@@ -24,10 +25,23 @@ export class ApiService {
     return throwError(errorMessage);
   }
 
-  getPokemon() {
-    return this.http.get(this.wisemenPokeApiUrl).pipe(retry(3), catchError(this.handleError));
+  getPokemon(): Observable<Pokemon[]> {
+    return this.http.get<Pokemon[]>(this.wisemenPokeApiUrl).pipe(retry(3), catchError(this.handleError));
   }
-  getPokemonDetail(id: number) {
-    return this.http.get(this.pokeApiUrl + `/${id}`);
+  getPokemonById(id: number): Observable<Pokemon> {
+    const url = `this.pokeApiUrl/${id}`;
+    const pokemon = this.http.get<Pokemon>(url);
+    return pokemon;
+  }
+  getPokemonByName(name: string) {
+    const url = `this.pokeApiUrl/${name}`;
+    return this.http.get(url);
+  }
+
+  searchPokemon(term: string): Observable<Pokemon[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Pokemon[]>(`${this.pokeApiUrl}/?name=${term})`);
   }
 }

@@ -1,0 +1,5 @@
+<div class="search_bar">
+  <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+  <input #pokesearch class="input_field" placeholder="Pokemon zoeken" type="text" (input)="search(pokesearch.value)"
+    autocomplete="off">
+</div>

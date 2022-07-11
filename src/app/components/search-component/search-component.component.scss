@@ -1,0 +1,29 @@
+$search_grey: #eff0f1;
+$search_type_color: rgba(60, 60, 67, 0.6);
+
+.search_bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 7px 8px;
+  gap: 6px;
+  background-color: $search_grey;
+  border-radius: 10px;
+}
+
+.input_field{
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.41;
+  font-family: 'SF Pro Display', sans-serif;  
+  font-weight: 400;
+  border-style: none;
+  background-color: $search_grey;
+  color: $search_type_color;
+}
+
+fa-icon{
+  font-size: 14px;
+  font-weight: 200;
+  color: $search_type_color;
+}

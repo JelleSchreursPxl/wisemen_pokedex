@@ -1,100 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 // Full colors
-$background: #E5E5E5;
-$black: #000;
+$background: #F9F9F9;
 $dark: #1F2029;
 $icon_grey: #BABEC2;
 $selection_grey: #F7F7F9;
 $subtext_grey: #919698;
 $grey: #ACB2C1;
-$white: #fff;
 
 // Linear gradients
 $green_gradient: linear-gradient(109.73deg, #65CB9A 0%, #15D0DC 100%);
 $orange_gradient: linear-gradient(109.73deg, #EDCA4D 0%, #E47005 100%);
 $purple_gradient: linear-gradient(109.73deg, #46469C 0%, #7E32E0 100%);
 
+// **** Global styling *** //
 html{
   font-size: 16px;
-  font-family: 'SF Pro Display', sans-serif;                                             
+  font-family: 'SF Pro Display', sans-serif;                                                   
   font-style: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $background;
 }
 
-// **** List representation of pokemon **** //
-.list_card{
-  display: flex;
-  box-shadow: 0px 15px 15px rgba(0,0,0,0.04);
-  border-radius: 10px;
-  background-color: $white;
-  width: 340px;
-  height: 70px;
-  margin-bottom: 10px;
-  align-items: center;
-  justify-content:space-between;
-}
-
-.poke_img{
-  width: 50px;
-  height: 50px;
-}
-
-.poke_id, .poke_name{
-  margin: 1px;
-}
-
-.poke_id{
-  color: $subtext_grey;
-  font-weight: 400;
-  line-height: 18px;
-  font-size: 89%;
-}
-
-.global_poke_info{
-  display: flex;
-  flex-direction: row;
-  margin-left: 16px;
+h1{
   font-weight: 700;
-  font-size: 106%;
-  line-height: 20px;
-  letter-spacing: 0.374px;
-  color: $black;
-  margin-right: 32px;
+  font-size: 212%;
+  line-height: 41px;
+  letter-spacing: 0.37px;
 }
 
-.poke_info{
-  display: flex;
-  flex-direction: column;
+textarea:focus, input:focus{
+  outline: none;
 }
 
-.type_tag{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding-right: 5px;
-  color: $white;
-}
-
-.type{
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-size: 75%;
-  line-height: 14px;
-  letter-spacing: 0.374px;
-  margin-top: 0px;
-}
-
-.poke_detail_action{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+a{
   color: $icon_grey;
-}
-
-fa-icon{
-  display:flex;
-  height: 24px;
-  width: 24px;
-  font-size: 66%;
-  justify-content: center;
-  align-items: center;
 }

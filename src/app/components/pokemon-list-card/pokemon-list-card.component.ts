@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Pokemon } from 'src/app/interfaces/Pokemon';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-pokemon-list-card',
-  templateUrl: './pokemon-list-card.component.html'
+  templateUrl: './pokemon-list-card.component.html',
+  styleUrls: ['./pokemon-list-card.component.scss']
 })
 export class PokemonListCardComponent {
+  filterTerm!: string;
   faChevron = faChevronRight;
+  selectedPokemon?: Pokemon;
 
   getColorByType(type: string) {
     switch (type) {
@@ -56,6 +60,10 @@ export class PokemonListCardComponent {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getPokemon().subscribe((data) => { this.pokemonData = data });
+    this.api.getPokemon().subscribe(pokedex => this.pokemonData = pokedex);
+  }
+
+  getPokemon(): void {
+    this.pokemonData.getPokemonById().subscribe((pokemon: Pokemon | undefined) => this.selectedPokemon = pokemon);
   }
 }
